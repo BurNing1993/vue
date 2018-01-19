@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png" :class="img">
-    <directives></directives>
+    <boot></boot>
+    <!-- <directives></directives> -->
     <!--<css-component></css-component>-->
     <!--<ComA></ComA>-->
     <!--<Computed></Computed>-->
@@ -38,6 +39,7 @@
   import Computed from './components/Computed.vue'
   import CssComponent from './components/CssComponent'
   import Directives from './components/Directives.vue'
+  import Boot from './components/Bootsrtap'
   export default {
     name: 'App',
     components: {
@@ -46,7 +48,8 @@
       ComForms,
       Computed,
       CssComponent,
-      Directives
+      Directives,
+      Boot
     },
     data() {
       return {
