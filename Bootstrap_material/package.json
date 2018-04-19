@@ -1,8 +1,8 @@
 {
-  "name": "vuedemo2",
+  "name": "bootstrap_material",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "BurNing1993 <786678257@qq.com>",
+  "author": "Joey <786678257@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -10,11 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.2.1",
-    "popper.js": "^1.12.9",
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1",
+    "material-design-lite": "^1.3.0",
+    "popper.js": "^1.14.3",
     "vue": "^2.5.2",
-    "vue-resource": "^1.3.5",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

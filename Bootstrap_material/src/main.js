@@ -2,23 +2,18 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
+import 'material-design-lite/material.min.css'
+import 'material-design-lite/material.min.js'
 import Vue from 'vue'
 import App from './App'
-import VueRouter from 'vue-router'
+import router from './router'
 
-Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: {
-    App
-  },
-  template: '<App/>',
-  directives: {
-    color: function (el, binding) {
-      el.style.color = binding.value
-    }
-  }
+  router,
+  components: { App },
+  template: '<App/>'
 })
