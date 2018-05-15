@@ -23,9 +23,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ### Bootstrap引入
     npm install --save jquery
-    cc
+    npm install bootstrap --save
     Popper.js 添加
-    c
+    npm install popper.js --save
     
     在build/webpack.base.conf.js文件中添加
     const  webpack = require('webpack')
@@ -39,6 +39,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     ]
     
     在src/main.js文件添加
+    import $ from 'jquery'
     import 'bootstrap/dist/css/bootstrap.min.css'
     import 'bootstrap/dist/js/bootstrap.min.js'
 
@@ -47,6 +48,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ### Material安装
 
     npm install material-design-lite --save
+    npm install material-design-icons --save
     index.html引入
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">

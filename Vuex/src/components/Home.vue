@@ -1,94 +1,61 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Vuex</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="fixed-header-drawer-exp">
+        </div>
+      </div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <router-link to="about" class="mdl-navigation__link">What is Vuex?</router-link>
+        <router-link to="coreconcepts" class="mdl-navigation__link">Core Concepts</router-link>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+      <div class="user">
+        <i class="material-icons">person</i>
+      </div>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Vuex</span>
+    <nav class="mdl-navigation">
+      <router-link to="about" class="mdl-navigation__link">What is Vuex?</router-link>
+        <router-link to="coreconcepts" class="mdl-navigation__link">Core Concepts</router-link>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
   </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+     <router-view></router-view>
+    </div>
+  </main>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      
     }
   }
 }
@@ -96,18 +63,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.user{
+  margin-left: 20px;
 }
 </style>
