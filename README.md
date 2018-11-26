@@ -35,3 +35,5 @@ http://placehold.it/820x230
 
 
 ## [Vuecli](https://github.com/BurNing1993/VUE/tree/master/vuecli)
+
+## [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/vuejs)
