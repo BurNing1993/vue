@@ -30,7 +30,7 @@ const router= new Router({
 // eslint-disable-next-line no-unused-vars
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  // NProgress.set(0.5)
+  NProgress.set(0.5)
   next()
 })
 
