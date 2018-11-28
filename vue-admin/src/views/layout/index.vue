@@ -1,12 +1,9 @@
 <template>
-  <el-container class="container"> 
-    <navbar/>
+  <el-container class="container">
+    <sidebar/>
     <el-container>
       <el-header>
-        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-          <el-radio-button :label="false">展开</el-radio-button>
-          <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
+        <navbar/>
       </el-header>
       <el-main>Main</el-main>
     </el-container>
@@ -14,34 +11,22 @@
 </template>
 
 <script>
+import Sidebar from './Sidebar'
 import Navbar from './Navbar.vue'
 export default {
-  name: "Layout",
-  components:{
+  name: 'Layout',
+  components: {
+    Sidebar,
     Navbar
   },
   data() {
-    return {
-      isCollapse: true,
-      menuStyle: {
-        // height: 6500px
-      }
-    };
-  },
-
-
-};
+    return {}
+  }
+}
 </script>
 
 <style scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
-}
-.container{
-   min-height: calc(100vh - 24px);
-}
-.menu{
-   min-height: calc(100vh - 24px);
+.container {
+  min-height: 100vh;
 }
 </style>
