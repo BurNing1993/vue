@@ -5,7 +5,14 @@
       <el-header>
         <navbar/>
       </el-header>
-      <el-main>Main</el-main>
+      <el-main>
+        <font-awesome-icon :icon="['fas', 'coffee']"/>
+        <font-awesome-icon :icon="['fab', '500px']"/>
+        <font-awesome-icon :icon="['fab', 'adn']"/>
+        <font-awesome-icon :icon="['fas', 'adn']"/>
+        <font-awesome-icon :icon="['far', 'square']"/>
+        <font-awesome-icon :icon="['fab', 'accessible-icon']"/>
+      </el-main>
     </el-container>
   </el-container>
 </template>

@@ -3,6 +3,9 @@
     <el-button size="mini" @click="handleClick">
       <font-awesome-icon icon="bars" class="fa-lg icon"/>
     </el-button>
+    <el-button size="mini" @click="handleClick">
+      <font-awesome-icon icon="bars" class="fa-lg icon" rotation="90"/>
+    </el-button>
   </div>
 </template>
 
