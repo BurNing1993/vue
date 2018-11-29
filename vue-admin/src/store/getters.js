@@ -1,4 +1,4 @@
 const getters = {
-    isCollapse: state => state.app.isCollapse
+  isCollapse: state => state.app.isCollapse
 }
 export default getters
