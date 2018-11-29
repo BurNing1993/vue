@@ -6,15 +6,15 @@
 
 <script>
 export default {
-   name: '',
-   components: {
+  name: '',
+  components: {
 
-   },
-   data() {
-       return {
+  },
+  data() {
+    return {
 
-       }
-   }
+    }
+  }
 }
 </script>
 
