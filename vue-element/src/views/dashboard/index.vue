@@ -3,10 +3,9 @@
     <div class="dashboard-text">name:{{ name }}</div>
     <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
     <el-row :gutter="20">
-  <el-col :span="12" :offset="6">
-    <chart :option="option"/>
-  </el-col>
-    </el-row>
+      <el-col :span="12" :offset="6">
+        <chart :option="option"/>
+      </el-col>
     </el-row>
   </div>
 </template>
