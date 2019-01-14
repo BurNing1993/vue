@@ -19,11 +19,6 @@
 
           <v-btn color="error" @click="reset">Reset Form</v-btn>
 
-          <v-btn color="info" small>修改</v-btn>
-        <v-btn color="error" large>刪除</v-btn>
-
-    <v-btn color="info" small>修改</v-btn>
-        <v-btn color="error" large>刪除</v-btn>
           <v-btn color="warning" @click="resetValidation">Reset Validation</v-btn>
         </v-form>
       </v-flex>
