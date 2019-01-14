@@ -1,13 +1,7 @@
 <template>
-  <HelloWorld />
+  <div>
+    2222
+  </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld';
-
-export default {
-  components: {
-    HelloWorld,
-  },
-};
-</script>
