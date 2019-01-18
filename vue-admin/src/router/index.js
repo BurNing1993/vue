@@ -15,9 +15,10 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    hidden: true,
     children: [{
       path: 'dashboard',
+      name: 'dashboard',
+      meta: { title: '首页', icon: 'Dashboard' },
       component: () => import('@/views/dashboard/index'),
     }],
   },
@@ -130,7 +131,7 @@ export const constantRouterMap = [
 ];
 
 export default new Router({
-  // mode: 'history', //后端支持可开
+  mode: 'history', // 后端支持可开
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap,
 });

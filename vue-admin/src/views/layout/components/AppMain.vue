@@ -15,6 +15,7 @@ export default {
   name: 'AppMain',
   computed: {
     // key() {
+    // eslint-disable-next-line max-len
     //   return this.$route.name !== undefined ? this.$route.name + +new Date() : this.$route + +new Date()
     // }
     cachedViews() {
