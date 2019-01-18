@@ -1,10 +1,11 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
+    <div class="dashboard-text">roles:
+      <span v-for="role in roles" :key="role">
+        {{ role }}</span></div>
     <el-row :gutter="20">
       <el-col :span="12" :offset="6">
-        <chart :option="option"/>
       </el-col>
     </el-row>
   </div>
@@ -12,12 +13,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Chart from '@/components/Chart/index';
 
 export default {
   name: 'Dashboard',
   components: {
-    Chart,
   },
   data() {
     return {
