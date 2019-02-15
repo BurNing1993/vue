@@ -11,7 +11,12 @@
     </v-toolbar>
     <v-content>
       <v-container fluid>
-        <router-view></router-view>
+        <tags-view/>
+        <transition name="fade-transform" mode="out-in">
+          <keep-alive :include="cachedViews">
+            <router-view :key="key"/>
+          </keep-alive>
+        </transition>
       </v-container>
     </v-content>
   </v-app>
@@ -21,19 +26,28 @@
 // import { mapGetters } from 'vuex';
 import SideMenu from './Menu.vue';
 import Navbar from './Navbar.vue';
+import TagsView from './TagsView.vue';
 
 export default {
   name: 'Layout',
   components: {
     SideMenu,
     Navbar,
+    TagsView,
   },
   data() {
     return {
       drawer: true,
     };
   },
-  computed: {},
+  computed: {
+    cachedViews() {
+      return this.$store.state.tagsView.cachedViews;
+    },
+    key() {
+      return this.$route.fullPath;
+    },
+  },
   methods: {
     handleIconClick() {
       console.log(this.$vuetify.breakpoint);

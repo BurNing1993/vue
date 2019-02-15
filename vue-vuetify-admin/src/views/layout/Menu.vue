@@ -31,14 +31,15 @@ export default {
   data() {
     return {
       items: [
-        { icon: 'trending_up', text: 'Most Popular', to: '/' },
-        { icon: 'subscriptions', text: 'Subscriptions', to: '/login' },
+        { icon: 'trending_up', text: 'Most Popular3', to: '/dashboard' },
+        { icon: 'trending_up', text: 'Most Popular13', to: '/page1' },
+        { icon: 'trending_up', text: 'Most Popular413', to: '/page2' },
       ],
     };
   },
   methods: {
     handleClick() {
-      console.log(this.$vuetify.breakpoint);
+      console.log(this.$routes);
     },
   },
 };

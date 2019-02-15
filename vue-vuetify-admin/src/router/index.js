@@ -8,7 +8,7 @@ import Layout from '@/views/layout/index.vue';
 
 Vue.use(Router);
 
-const routes = [
+export const routes = [
   {
     path: '/login',
     name: 'login',
@@ -19,14 +19,33 @@ const routes = [
   },
   {
     path: '/',
-    name: 'home',
+    name: '你好',
     component: Layout,
     redirect: '/dashboard',
     children: [
       {
         path: '/dashboard',
-        name: 'dashboard',
+        name: '你好',
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
+        meta: {
+          affix: true,
+        },
+      },
+      {
+        path: '/page1',
+        name: '哈哈哈',
+        component: () => import(/* webpackChunkName: "page1" */ '@/views/dashboard/page1.vue'),
+        meta: {
+          affix: false,
+        },
+      },
+      {
+        path: '/page2',
+        name: '大家第四',
+        component: () => import(/* webpackChunkName: "page2" */ '@/views/dashboard/page2.vue'),
+        meta: {
+          affix: false,
+        },
       },
     ],
   },
