@@ -3,7 +3,8 @@
     ref="scrollContainer"
     :vertical="false"
     class="scroll-container"
-    @wheel.native.prevent="handleScroll">
+    @wheel.native.prevent="handleScroll"
+  >
     <slot/>
   </el-scrollbar>
 </template>
@@ -55,7 +56,10 @@ export default {
         // the tag's offsetLeft before of prevTag
         const beforePrevTagOffsetLeft = prevTag.$el.offsetLeft - tagAndTagSpacing;
 
-        if (afterNextTagOffsetLeft > $scrollWrapper.scrollLeft + $containerWidth) {
+        if (
+          afterNextTagOffsetLeft
+          > $scrollWrapper.scrollLeft + $containerWidth
+        ) {
           $scrollWrapper.scrollLeft = afterNextTagOffsetLeft - $containerWidth;
         } else if (beforePrevTagOffsetLeft < $scrollWrapper.scrollLeft) {
           $scrollWrapper.scrollLeft = beforePrevTagOffsetLeft;
@@ -66,19 +70,17 @@ export default {
 };
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style scoped>
 .scroll-container {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
   width: 100%;
-  >>> {
-    .el-scrollbar__bar {
-      bottom: 0px;
-    }
-    .el-scrollbar__wrap {
-      height: 49px;
-    }
-  }
+}
+.scroll-container >>> .el-scrollbar__bar {
+  bottom: 0px;
+}
+.scroll-container >>> .el-scrollbar__wrap {
+  height: 49px;
 }
 </style>
