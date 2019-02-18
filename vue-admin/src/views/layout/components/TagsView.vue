@@ -20,7 +20,10 @@
     </scroll-pane>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <!-- <li @click="refreshSelectedTag(selectedTag)">tagsView.refresh</li> -->
-      <li v-if="!(selectedTag.meta&&selectedTag.meta.affix)" @click="closeSelectedTag(selectedTag)">close</li>
+      <li
+        v-if="!(selectedTag.meta&&selectedTag.meta.affix)"
+        @click="closeSelectedTag(selectedTag)">
+        close</li>
       <li @click="closeOthersTags">closeOthers</li>
       <li @click="closeAllTags(selectedTag)">closeAll</li>
     </ul>
@@ -28,7 +31,6 @@
 </template>
 
 <script>
-// eslint disable
 import ScrollPane from '@/components/ScrollPane/index.vue';
 import path from 'path';
 
@@ -93,7 +95,9 @@ export default {
       return tags;
     },
     initTags() {
+      // eslint-disable-next-line no-multi-assign
       const affixTags = this.affixTags = this.filterAffixTags(this.routers);
+      // eslint-disable-next-line no-restricted-syntax
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {
@@ -111,6 +115,7 @@ export default {
     moveToCurrentTag() {
       const tags = this.$refs.tag;
       this.$nextTick(() => {
+        // eslint-disable-next-line no-restricted-syntax
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
             this.$refs.scrollPane.moveToTarget(tag);

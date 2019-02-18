@@ -9,7 +9,6 @@
 </template>
 
 <script>
-/* eslint disable */
 const tagAndTagSpacing = 4; // tagAndTagSpacing
 
 export default {
@@ -36,7 +35,7 @@ export default {
 
       // find first tag and last tag
       if (tagList.length > 0) {
-        firstTag = tagList[0];
+        [firstTag] = tagList;
         lastTag = tagList[tagList.length - 1];
       }
 
@@ -50,6 +49,7 @@ export default {
         const prevTag = tagList[currentIndex - 1];
         const nextTag = tagList[currentIndex + 1];
         // the tag's offsetLeft after of nextTag
+        // eslint-disable-next-line max-len
         const afterNextTagOffsetLeft = nextTag.$el.offsetLeft + nextTag.$el.offsetWidth + tagAndTagSpacing;
 
         // the tag's offsetLeft before of prevTag
