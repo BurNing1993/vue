@@ -4,8 +4,8 @@ import Router from 'vue-router';
 /* Layout */
 import Layout from '../views/layout/Layout.vue';
 
-
 Vue.use(Router);
+
 export const constantRouterMap = [
   {
     path: '/redirect',
@@ -14,21 +14,20 @@ export const constantRouterMap = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index'),
+        component: () => import(/* webpackChunkName: "redirect" */ '../views/redirect/index.vue'),
       },
     ],
   },
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
-
+  { path: '/login', component: () => import(/* webpackChunkName: "login" */'../views/login/index.vue'), hidden: true },
+  { path: '/404', component: () => import(/* webpackChunkName: "404" */'../views/404.vue'), hidden: true },
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: 'Dashboard',
+    name: 'Home',
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index'),
+      component: () => import(/* webpackChunkName: "dashboard" */'../views/dashboard/index.vue'),
       name: 'Dashboard',
       meta: {
         title: 'dashboard', icon: 'dashboard', noCache: true, affix: true,
@@ -54,35 +53,10 @@ export const asyncRouterMap = [
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' },
+        component: () => import(/* webpackChunkName: "redirect" */'../views/example/index.vue'),
+        meta: { title: 'Example', icon: 'tree' },
       },
     ],
   },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' },
-      },
-    ],
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' },
-      },
-    ],
-  },
-
   { path: '*', redirect: '/404', hidden: true },
 ];

@@ -4,10 +4,10 @@ import router from './router';
 import store from './store';
 import './plugins/element';
 
-import 'normalize.css/normalize.css'; // A modern alternative to CSS resets
-import '@/styles/index.scss'; // global css
-import '@/icons'; // icon
-import '@/permission'; // permission control
+import 'normalize.css/normalize.css';
+import './styles/index.scss';
+import './plugins/icons';
+import './permission';
 
 Vue.config.productionTip = false;
 
