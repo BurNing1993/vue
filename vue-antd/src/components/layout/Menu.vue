@@ -17,16 +17,14 @@
 
 <script>
 export default {
-   name: 'Menu',
-   components: {
-
-   },
-   data() {
-       return {
-
-       }
-   }
-}
+  name: 'Menu',
+  components: {
+  },
+  data() {
+    return {
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

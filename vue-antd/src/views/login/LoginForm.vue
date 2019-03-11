@@ -1,6 +1,6 @@
 <template>
   <a-form
-    id="components-form-demo-normal-login"
+    id="login"
     :form="form"
     class="login-form"
     @submit="handleSubmit"
@@ -70,13 +70,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#components-form-demo-normal-login .login-form {
+#login .login-form {
   max-width: 300px;
 }
-#components-form-demo-normal-login .login-form-forgot {
+#login .login-form-forgot {
   float: right;
 }
-#components-form-demo-normal-login .login-form-button {
+#login .login-form-button {
   width: 100%;
 }
 </style>

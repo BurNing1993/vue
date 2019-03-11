@@ -4,13 +4,13 @@ import Layout from '../components/layout/index.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'Layout',
+      name: 'home',
       component: Layout,
     },
     {
@@ -20,3 +20,5 @@ export default new Router({
     },
   ],
 });
+
+export default router;

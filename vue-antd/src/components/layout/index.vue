@@ -37,12 +37,12 @@
   </a-layout>
 </template>
 <script>
-import AppMenu from "./Menu.vue";
+import AppMenu from './Menu.vue';
 
 export default {
-  name: "Layout",
+  name: 'Layout',
   components: {
-    AppMenu
+    AppMenu,
   },
   data() {
     return {
@@ -50,7 +50,7 @@ export default {
       collapsedWidth: 80,
       width: 576,
       mobile: false,
-      visible: false
+      visible: false,
     };
   },
   methods: {
@@ -73,14 +73,14 @@ export default {
     },
     onClose() {
       this.visible = false;
-    }
+    },
   },
   beforeMount() {
-    window.addEventListener("resize", this.resizeHandler);
+    window.addEventListener('resize', this.resizeHandler);
   },
   mounted() {
     this.resizeHandler();
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -94,11 +94,9 @@ export default {
   cursor: pointer;
   transition: color 0.3s;
 }
-
 .trigger:hover {
   color: #1890ff;
 }
-
 .logo {
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
