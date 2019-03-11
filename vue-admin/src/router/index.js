@@ -53,7 +53,7 @@ export const asyncRouterMap = [
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import(/* webpackChunkName: "redirect" */'../views/example/index.vue'),
+        component: () => import(/* webpackChunkName: "example" */'../views/example/index.vue'),
         meta: { title: 'Example', icon: 'tree' },
       },
     ],

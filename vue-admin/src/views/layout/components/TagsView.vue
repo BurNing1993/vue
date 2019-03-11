@@ -23,9 +23,9 @@
       <li
         v-if="!(selectedTag.meta&&selectedTag.meta.affix)"
         @click="closeSelectedTag(selectedTag)">
-        close</li>
-      <li @click="closeOthersTags">closeOthers</li>
-      <li @click="closeAllTags(selectedTag)">closeAll</li>
+        关闭</li>
+      <li @click="closeOthersTags">关闭其他</li>
+      <li @click="closeAllTags(selectedTag)">关闭全部</li>
     </ul>
   </div>
 </template>
