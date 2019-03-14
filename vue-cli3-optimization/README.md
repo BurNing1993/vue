@@ -23,7 +23,7 @@
             }
         }
 
-3. 提取公用代码, 使用免费的 cdn 资源
+3. 提取公用代码, 使用免费的 cdn 资源  [BootCDN](https://www.bootcdn.cn/)
 
         // vue.config.js
         module.exports = {
