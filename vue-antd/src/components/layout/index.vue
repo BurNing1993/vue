@@ -8,7 +8,9 @@
       collapsible
       v-model="collapsed"
     >
-      <div class="logo"/>
+      <div class="logo">
+       <h2>Logo</h2>
+      </div>
       <app-menu/>
     </a-layout-sider>
     <a-drawer
@@ -23,26 +25,31 @@
       <app-menu/>
     </a-drawer>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header style="background: #fff; padding: 0" class="navbar">
         <a-icon
           class="trigger"
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="handleMenuSwitch"
         />
+        <Navbar/>
       </a-layout-header>
       <a-layout-content
         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
-      >Content</a-layout-content>
+      >
+        <router-view/>
+      </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 <script>
 import AppMenu from './Menu.vue';
+import Navbar from './Navbar.vue';
 
 export default {
   name: 'Layout',
   components: {
     AppMenu,
+    Navbar,
   },
   data() {
     return {
@@ -86,6 +93,14 @@ export default {
 <style lang="scss" scoped>
 .app-layout {
   height: 100vh;
+  .logo{
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+  .navbar{
+    display: flex;
+  }
 }
 .trigger {
   font-size: 18px;
@@ -96,10 +111,5 @@ export default {
 }
 .trigger:hover {
   color: #1890ff;
-}
-.logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
 }
 </style>
