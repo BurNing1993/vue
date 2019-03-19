@@ -78,7 +78,6 @@
 
 5. gzip压缩
 
-
         // nginx 配置
         http {
                 gzip  on;
@@ -89,4 +88,3 @@
                 gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;
                 gzip_disable "MSIE [1-6]\.";
         }
-

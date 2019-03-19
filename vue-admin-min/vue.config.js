@@ -29,12 +29,15 @@ module.exports = {
     config.optimization.splitChunks({
       chunks: 'all',
     });
+    // 忽略这些模块的打包
     config.externals({
       vue: 'Vue',
       vuex: 'Vuex',
       'vue-router': 'VueRouter',
       'element-ui': 'ELEMENT',
     });
+
+
     // 一个规则里的 基础Loader
     // svg是个基础loader
     // const svgRule = config.module.rule('svg');
