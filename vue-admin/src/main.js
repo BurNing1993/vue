@@ -2,12 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import './plugins/element';
-
-import 'normalize.css/normalize.css';
-import './styles/index.scss';
-import './plugins/icons';
-import './permission';
 
 Vue.config.productionTip = false;
 
