@@ -1,4 +1,9 @@
 // vue.config.js
+const path = require('path');
+
+function resolve(dir) {
+  return path.join(__dirname, '.', dir);
+}
 
 module.exports = {
   productionSourceMap: false,
@@ -16,5 +21,20 @@ module.exports = {
     //   'vue-router': 'VueRouter',
     //   'element-ui': 'ELEMENT'
     // })
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/plugins/icons'))
+      .end();
+
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/plugins/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]',
+      });
   },
 };
