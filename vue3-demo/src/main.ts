@@ -1,7 +1,5 @@
 import { createApp } from 'vue'
-// TypeScript error? Run VSCode command
-// TypeScript: Select TypeScript version - > Use Workspace Version
 import App from './App.vue'
-import './index.css'
+import element from './plugins/element'
 
-createApp(App).mount('#app')
+createApp(App).use(element).mount('#app')
