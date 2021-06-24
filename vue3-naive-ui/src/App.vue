@@ -16,7 +16,7 @@
         :onUpdateValue="onThemeUpdate"
       >
         <n-space>
-          <n-radio value=""> Light </n-radio>
+          <n-radio value="light"> Light </n-radio>
           <n-radio value="dark"> Dark </n-radio>
         </n-space>
       </n-radio-group>
@@ -27,7 +27,7 @@
         :onUpdateValue="onLangUpdate"
       >
         <n-space>
-          <n-radio value=""> English </n-radio>
+          <n-radio value="en"> English </n-radio>
           <n-radio value="zhCN"> 中文 </n-radio>
         </n-space>
       </n-radio-group>
@@ -51,8 +51,12 @@ import {
 import { darkTheme, useOsTheme } from "naive-ui";
 // locale & dateLocale
 import { zhCN, dateZhCN } from "naive-ui";
+
 const LOCAL_THEME = "local_theme";
 const LOCAL_LANG = "local_lang";
+
+type Theme = "light" | "dark";
+type Lang = "en" | "zhCN";
 
 export default defineComponent({
   components: {
@@ -67,18 +71,18 @@ export default defineComponent({
   },
   setup() {
     const osThemeRef = useOsTheme();
-    const theme = ref<"dark" | "">("");
-    const lang = ref<"zhCN" | "">("");
-    onMounted(() => {
-      const localTheme = localStorage[LOCAL_THEME] || osThemeRef.value;
-      if (localTheme === "dark") {
-        theme.value = "dark";
-      }
-      const localLang = localStorage[LOCAL_LANG] || navigator.language;
-      if (/zh/.test(localLang)) {
-        lang.value = "zhCN";
-      }
-    });
+    const theme = ref<Theme>("light");
+    const lang = ref<Lang>("en");
+    const localTheme = (localStorage[LOCAL_THEME] || osThemeRef.value) as Theme;
+    if (localTheme === "dark") {
+      theme.value = "dark";
+      // document.documentElement.classList.add("dark");
+    }
+    const localLang = localStorage[LOCAL_LANG] || navigator.language;
+    if (/zh/.test(localLang)) {
+      lang.value = "zhCN";
+      // document.documentElement.lang = "zh-CN";
+    }
 
     return {
       theme,
@@ -95,18 +99,22 @@ export default defineComponent({
               dateLocale: null,
             }
       ),
-      onThemeUpdate: (val) => {
+      onThemeUpdate: (val: Theme) => {
         if (val === "dark") {
           localStorage[LOCAL_THEME] = "dark";
+          // document.documentElement.classList.add("dark");
         } else {
           localStorage[LOCAL_THEME] = "light";
+          // document.documentElement.classList.remove("dark");
         }
       },
-      onLangUpdate: (val) => {
+      onLangUpdate: (val: Lang) => {
         if (val === "zhCN") {
           localStorage[LOCAL_LANG] = "zhCN";
+          // document.documentElement.lang = "zh-CN";
         } else {
           localStorage[LOCAL_LANG] = "en";
+          // document.documentElement.lang = "en";
         }
       },
     };
