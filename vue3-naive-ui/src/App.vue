@@ -4,21 +4,31 @@
     :locale="currentLocale.locale"
     :date-locale="currentLocale.dateLocale"
   >
+    <NGlobalStyle />
     <n-space vertical>
       <n-input />
       <n-date-picker />
+      <n-button type="primary">Primary</n-button>
       <h2>Theme</h2>
-      <n-radio-group v-model:value="theme" name="radiogroup">
+      <n-radio-group
+        v-model:value="theme"
+        name="radiogroup"
+        :onUpdateValue="onThemeUpdate"
+      >
         <n-space>
           <n-radio value=""> Light </n-radio>
-          <n-radio value="dark"> dark </n-radio>
+          <n-radio value="dark"> Dark </n-radio>
         </n-space>
       </n-radio-group>
       <h2>Lang</h2>
-      <n-radio-group v-model:value="lang" name="radiogroup">
+      <n-radio-group
+        v-model:value="lang"
+        name="radiogroup"
+        :onUpdateValue="onLangUpdate"
+      >
         <n-space>
-          <n-radio value=""> En </n-radio>
-          <n-radio value="zhCN"> zhCN </n-radio>
+          <n-radio value=""> English </n-radio>
+          <n-radio value="zhCN"> 中文 </n-radio>
         </n-space>
       </n-radio-group>
     </n-space>
@@ -26,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref, watch } from "vue";
+import { computed, defineComponent, onMounted, ref, watch } from "vue";
 import {
   NConfigProvider,
   NInput,
@@ -34,11 +44,15 @@ import {
   NSpace,
   NRadioGroup,
   NRadio,
+  NGlobalStyle,
+  NButton,
 } from "naive-ui";
 // theme
-import { darkTheme } from "naive-ui";
+import { darkTheme, useOsTheme } from "naive-ui";
 // locale & dateLocale
 import { zhCN, dateZhCN } from "naive-ui";
+const LOCAL_THEME = "local_theme";
+const LOCAL_LANG = "local_lang";
 
 export default defineComponent({
   components: {
@@ -48,17 +62,24 @@ export default defineComponent({
     NSpace,
     NRadioGroup,
     NRadio,
+    NGlobalStyle,
+    NButton,
   },
   setup() {
-    const theme = ref("");
-    const lang = ref("");
-    watch(theme, (val) => {
-      if (val === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+    const osThemeRef = useOsTheme();
+    const theme = ref<"dark" | "">("");
+    const lang = ref<"zhCN" | "">("");
+    onMounted(() => {
+      const localTheme = localStorage[LOCAL_THEME] || osThemeRef.value;
+      if (localTheme === "dark") {
+        theme.value = "dark";
+      }
+      const localLang = localStorage[LOCAL_LANG] || navigator.language;
+      if (/zh/.test(localLang)) {
+        lang.value = "zhCN";
       }
     });
+
     return {
       theme,
       lang,
@@ -74,14 +95,24 @@ export default defineComponent({
               dateLocale: null,
             }
       ),
+      onThemeUpdate: (val) => {
+        if (val === "dark") {
+          localStorage[LOCAL_THEME] = "dark";
+        } else {
+          localStorage[LOCAL_THEME] = "light";
+        }
+      },
+      onLangUpdate: (val) => {
+        if (val === "zhCN") {
+          localStorage[LOCAL_LANG] = "zhCN";
+        } else {
+          localStorage[LOCAL_LANG] = "en";
+        }
+      },
     };
   },
 });
 </script>
 
-
 <style>
-.dark {
-  background: black;
-}
 </style>
